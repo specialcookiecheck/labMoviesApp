@@ -25,6 +25,7 @@ const MoviePage: React.FC = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<MovieDetailsProps>();
   const [images, setImages] = useState<MovieImage[]>([]);
+  
 
  useEffect(() => {
    getMovie(id ?? "").then((movie) => {
@@ -38,6 +39,9 @@ const MoviePage: React.FC = () => {
    });
    // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);
+
+ //console.log(movie);
+ //console.log(movie.favourite);
 
   return (
     <>

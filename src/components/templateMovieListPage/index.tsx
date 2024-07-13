@@ -30,7 +30,7 @@ const MovieListPageTemplate: React.FC<MovieListPageTemplateProps> = ({
 
   const genreId = Number(genreFilter);
 
-  let displayedMovies = movies
+  const displayedMovies = movies
     .filter((m) => {
       return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
     })
