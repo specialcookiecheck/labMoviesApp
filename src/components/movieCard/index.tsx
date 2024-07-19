@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, useContext } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -15,6 +15,7 @@ import img from "../../images/film-poster-placeholder.png";
 import { BaseMovieProps } from "../../types/interfaces";
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
+import { MoviesContext } from "../../contexts/moviesContext";
 
 const styles = {
   card: { maxWidth: 345 },
@@ -25,70 +26,73 @@ const styles = {
 };
 
 interface MovieCardProps {
+  //Removed selectFavourite property from interface
   movie: BaseMovieProps;
-  selectFavourite: (movieId: number) => void;
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ movie, selectFavourite }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
+  const { favourites, addToFavourites } = useContext(MoviesContext); //NEW
+
+  const isFavourite = favourites.find((id) => id === movie.id) ? true : false; //NEW
+
   const handleAddToFavourite = (e: MouseEvent<HTMLButtonElement>) => {
+    //NEW
     e.preventDefault();
-    selectFavourite(movie.id);
+    addToFavourites(movie);
   };
-  return (
-    <Card sx={styles.card}>
-      <CardHeader
-        avatar={
-          movie.favourite ? (
-            <Avatar sx={styles.avatar}>
-              <FavoriteIcon />
-            </Avatar>
-          ) : null
-        }
-        title={
-          <Typography variant="h5" component="p">
-            {movie.title}{" "}
+  
+return (
+  <Card sx={styles.card}>
+    <CardHeader
+      avatar={
+        isFavourite ? ( //CHANGED
+          <Avatar sx={styles.avatar}>
+            <FavoriteIcon />
+          </Avatar>
+        ) : null
+      }
+      title={
+        <Typography variant="h5" component="p">
+          {movie.title}{" "}
+        </Typography>
+      }
+    />
+    <CardMedia
+      sx={styles.media}
+      image={
+        movie.poster_path
+          ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+          : img
+      }
+    />
+    <CardContent>
+      <Grid container>
+        <Grid item xs={6}>
+          <Typography variant="h6" component="p">
+            <CalendarIcon fontSize="small" />
+            {movie.release_date}
           </Typography>
-        }
-      />
-      <CardMedia
-        sx={styles.media}
-        image={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-            : img
-        }
-      />
-      <CardContent>
-        <Grid container>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-              {movie.release_date}
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
-              {"  "} {movie.vote_average}{" "}
-            </Typography>
-          </Grid>
         </Grid>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton
-          aria-label="add to favourites"
-          onClick={handleAddToFavourite}
-        >
-          <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton>
-        <Link to={`/movies/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
-          </Button>
-        </Link>
-      </CardActions>
-    </Card>
-  );
+        <Grid item xs={6}>
+          <Typography variant="h6" component="p">
+            <StarRateIcon fontSize="small" />
+            {"  "} {movie.vote_average}{" "}
+          </Typography>
+        </Grid>
+      </Grid>
+    </CardContent>
+    <CardActions disableSpacing>
+      <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}>
+        <FavoriteIcon color="primary" fontSize="large" />
+      </IconButton>
+      <Link to={`/movies/${movie.id}`}>
+        <Button variant="outlined" size="medium" color="primary">
+          More Info ...
+        </Button>
+      </Link>
+    </CardActions>
+  </Card>
+);
 };
 
 export default MovieCard;
