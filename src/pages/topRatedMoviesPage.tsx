@@ -1,16 +1,16 @@
 import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
-import { getUpcomingMovies } from "../api/tmdb-api";
+import { getTopRatedMovies } from "../api/tmdb-api";
 import useFiltering from "../hooks/useFiltering";
 import MovieFilterUI, {
   titleFilter,
   genreFilter,
 } from "../components/movieFilterUI";
-import { UpcomingMovies } from "../types/interfaces";
+import { TopRatedMovies } from "../types/interfaces";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
-// import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
-import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
+// import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
 // import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 const titleFiltering = {
@@ -24,10 +24,10 @@ const genreFiltering = {
   condition: genreFilter,
 };
 
-const ExtraPage4: React.FC = () => {
-  const { data, error, isLoading, isError } = useQuery<UpcomingMovies, Error>(
+const TopRatedMoviesPage: React.FC = () => {
+  const { data, error, isLoading, isError } = useQuery<TopRatedMovies, Error>(
     "upcoming",
-    getUpcomingMovies
+    getTopRatedMovies
   );
   const { filterValues, setFilterValues, filterFunction } = useFiltering([
     titleFiltering,
@@ -57,10 +57,10 @@ const ExtraPage4: React.FC = () => {
   return (
     <>
       <PageTemplate
-        title="Extra Page 4 Placeholder"
+        title="Top Rated Movies"
         movies={displayedMovies}
         action={(movie: BaseMovieProps) => {
-          return <AddToMustWatchIcon {...movie} />;
+          return <AddToFavouritesIcon {...movie} />;
         }}
       />
       <MovieFilterUI
@@ -72,4 +72,4 @@ const ExtraPage4: React.FC = () => {
   );
 };
 
-export default ExtraPage4;
+export default TopRatedMoviesPage;

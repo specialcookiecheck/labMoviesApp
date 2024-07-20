@@ -34,7 +34,7 @@ const SiteHeader: React.FC = () => {
     { label: "Extra Page 1", path: "/extrapage1" },
     { label: "Extra Page 2", path: "/extrapage2" },
     { label: "Extra Page 3", path: "/extrapage3" },
-    { label: "Extra Page 4", path: "/extrapage4" },
+    { label: "Top Rated", path: "/movies/toprated" },
   ];
 
   const handleMenuSelect = (pageURL: string) => {
