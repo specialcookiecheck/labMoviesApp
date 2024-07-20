@@ -6,6 +6,10 @@ import MoviePage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
+import ExtraPage1 from "./pages/extraPage1";
+import ExtraPage2 from "./pages/extraPage2";
+import ExtraPage3 from "./pages/extraPage3";
+import ExtraPage4 from "./pages/extraPage4";
 import SiteHeader from "./components/siteHeader";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -39,6 +43,10 @@ const App = () => {
             <Route path="*" element={<Navigate to="/" />} />
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/reviews/form" element={<AddMovieReviewPage />} />
+            <Route path="/extrapage1" element={<ExtraPage1 />} />
+            <Route path="/extrapage2" element={<ExtraPage2 />} />
+            <Route path="/extrapage3" element={<ExtraPage3 />} />
+            <Route path="/extrapage4" element={<ExtraPage4 />} />
           </Routes>
         </MoviesContextProvider>
       </BrowserRouter>
