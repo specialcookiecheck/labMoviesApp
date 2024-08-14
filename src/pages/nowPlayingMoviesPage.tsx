@@ -1,6 +1,6 @@
 import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
-import { getUpcomingMovies } from "../api/tmdb-api";
+import { getNowPlayingMovies } from "../api/tmdb-api";
 import useFiltering from "../hooks/useFiltering";
 import MovieFilterUI, {
   titleFilter,
@@ -24,10 +24,10 @@ const genreFiltering = {
   condition: genreFilter,
 };
 
-const ExtraPage2: React.FC = () => {
-  const { data, error, isLoading, isError } = useQuery<UpcomingMovies, Error>(
-    "upcoming",
-    getUpcomingMovies
+const NowPlayingMoviesPage: React.FC = () => {
+  const { data, error, isLoading, isError } = useQuery<NowPlayingMovies, Error>(
+    "now playing",
+    getNowPlayingMovies
   );
   const { filterValues, setFilterValues, filterFunction } = useFiltering([
     titleFiltering,
@@ -57,7 +57,7 @@ const ExtraPage2: React.FC = () => {
   return (
     <>
       <PageTemplate
-        title="Extra Page 2 Placeholder"
+        title="Now Playing movies"
         movies={displayedMovies}
         action={(movie: BaseMovieProps) => {
           return <AddToMustWatchIcon {...movie} />;
@@ -72,4 +72,4 @@ const ExtraPage2: React.FC = () => {
   );
 };
 
-export default ExtraPage2;
+export default NowPlayingMoviesPage;
