@@ -26,7 +26,7 @@ const genreFiltering = {
 
 const TopRatedMoviesPage: React.FC = () => {
   const { data, error, isLoading, isError } = useQuery<TopRatedMovies, Error>(
-    "upcoming",
+    "top rated",
     getTopRatedMovies
   );
   const { filterValues, setFilterValues, filterFunction } = useFiltering([

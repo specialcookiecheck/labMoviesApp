@@ -90,7 +90,14 @@ export interface Review {
     movieId: number,
   }
 
-  export interface TopRatedMovies {
+export interface TopRatedMovies {
+  page: number;	
+  total_pages: number;
+  total_results: number;
+  results: BaseMovieProps[];
+}
+
+export interface PopularMovies {
   page: number;	
   total_pages: number;
   total_results: number;
