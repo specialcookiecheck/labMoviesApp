@@ -116,6 +116,22 @@ export const getNowPlayingMovies = () => {
     });
 };
 
+export const getPopularActors = () => {
+    return fetch(
+      "https://api.themoviedb.org/3/person/popular?api_key=" + import.meta.env.VITE_TMDB_KEY
+    ).then((response) => {
+      //console.log(response.json());
+    if (!response.ok)
+      throw new Error(`Unable to fetch popular actors. Response status: ${response.status}`);
+    return response.json();
+  })
+    .catch((error) => {
+      throw error
+    });
+};
+
+
+
 
 
 

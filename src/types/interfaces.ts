@@ -18,9 +18,22 @@ export interface BaseMovieProps {
     genre_ids?: number[];
 }
 
+export interface BaseActorProps {
+  name: string;
+  id: number;
+  imdb_id: string;
+  popularity: number;
+  profile_path?: string;
+}
+
 export interface BaseMovieListProps {
   movies: BaseMovieProps[];
   action: (m: BaseMovieProps) => React.ReactNode;
+}
+
+export interface BaseActorListProps {
+  actors: BaseActorProps[];
+  action: (m: BaseActorProps) => React.ReactNode;
 }
 
 export interface MovieDetailsProps extends BaseMovieProps {
@@ -53,6 +66,10 @@ export type FilterOption = "title" | "genre";
 
 export interface MovieListPageTemplateProps extends BaseMovieListProps {
   title: string;
+}
+
+export interface ActorListPageTemplateProps extends BaseActorListProps {
+  name: string;
 }
 
 export interface Review{
@@ -102,4 +119,11 @@ export interface PopularMovies {
   total_pages: number;
   total_results: number;
   results: BaseMovieProps[];
+}
+
+export interface PopularActors {
+  page: number;	
+  total_pages: number;
+  total_results: number;
+  results: BaseActorProps[];
 }
