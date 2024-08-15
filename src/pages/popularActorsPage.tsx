@@ -1,7 +1,7 @@
 import React from "react";
 import PageTemplate from "../components/templateActorListPage";
 import { getPopularActors } from "../api/tmdb-api";
-//import useFiltering from "../hooks/useFiltering";
+import useFiltering from "../hooks/useFiltering";
 // import MovieFilterUI, { titleFilter, genreFilter } from "../components/movieFilterUI";
 import ActorFilterUI, { nameFilter } from "../components/actorFilterUI";
 import { PopularActors } from "../types/interfaces";
@@ -14,7 +14,7 @@ import AddToMostLovedActorsIcon from "../components/cardIcons/addToMostLovedActo
 const nameFiltering = {
   name: "name",
   value: "",
-  //condition: nameFilter,
+  condition: nameFilter,
 };
 
 const PopularActorsPage: React.FC = () => {
@@ -23,11 +23,11 @@ const PopularActorsPage: React.FC = () => {
     getPopularActors
   );
   
-  /*
+  
   const { filterValues, setFilterValues, filterFunction } = useFiltering([
     nameFiltering,
   ]);
-  */
+  
   
 
   if (isLoading) {
@@ -38,7 +38,7 @@ const PopularActorsPage: React.FC = () => {
     return <h1>{error.message}</h1>;
   }
 
-  /*
+  
   const changeFilterValues = (type: string, value: string) => {
     const changedFilter = { name: type, value: value };
     const updatedFilterSet =
@@ -47,10 +47,10 @@ const PopularActorsPage: React.FC = () => {
         : [filterValues[0], changedFilter];
     setFilterValues(updatedFilterSet);
   };
-  */
+  
 
   const actors = data ? data.results : [];
-  const displayedActors = actors //filterFunction(actors);
+  const displayedActors = filterFunction(actors);
 
   return (
     <>
@@ -62,8 +62,8 @@ const PopularActorsPage: React.FC = () => {
         }}
       />
       <ActorFilterUI
-        //onFilterValuesChange={changeFilterValues}
-        //nameFilter={filterValues[0].value}
+        onFilterValuesChange={changeFilterValues}
+        nameFilter={filterValues[0].value}
       />
     </>
   );

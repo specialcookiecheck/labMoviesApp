@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react"; 
-import { FilterOption, GenreData } from "../../types/interfaces";
+import { BaseActorProps, FilterOption } from "../../types/interfaces";
 import { SelectChangeEvent } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -37,7 +37,7 @@ const FilterActorsCard: React.FC<FilterActorsCardProps> = ({
   nameFilter,
   onUserInput,
 }) => {
-  const { data, error, isLoading, isError } = useQuery<GenreData, Error>(
+  const { data, error, isLoading, isError } = useQuery<BaseActorProps, Error>(
     "genres",
     getGenres
   );
@@ -59,7 +59,7 @@ const FilterActorsCard: React.FC<FilterActorsCardProps> = ({
   };
 
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
-    handleChange(e, "title", e.target.value);
+    handleChange(e, "name", e.target.value);
   };
 
   return (
@@ -79,17 +79,7 @@ const FilterActorsCard: React.FC<FilterActorsCardProps> = ({
             variant="filled"
             onChange={handleTextChange}
           />
-          <FormControl sx={styles.formControl}>
-
-          </FormControl>
-        </CardContent>
-      </Card>
-      <Card sx={styles.root} variant="outlined">
-        <CardContent>
-          <Typography variant="h5" component="h1">
-            <SortIcon fontSize="large" />
-            Sort the actors
-          </Typography>
+          
         </CardContent>
       </Card>
     </>
