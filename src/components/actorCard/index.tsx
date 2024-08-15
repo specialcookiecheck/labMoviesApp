@@ -7,7 +7,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
+import LocalMoviesOutlinedIcon from "@mui/icons-material/LocalMoviesOutlined";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import img from "../../images/film-poster-placeholder.png";
@@ -39,7 +39,7 @@ const ActorCard: React.FC<ActorCardProps> = ({ actor, action }) => {
     <Card sx={styles.card}>
       <CardHeader
         avatar={
-          isMostLoved ? ( 
+          isMostLoved ? (
             <Avatar sx={styles.avatar}>
               <FavoriteIcon />
             </Avatar>
@@ -63,14 +63,8 @@ const ActorCard: React.FC<ActorCardProps> = ({ actor, action }) => {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-          
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              
+              {actor.popularity}
             </Typography>
           </Grid>
         </Grid>

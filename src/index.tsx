@@ -44,6 +44,7 @@ const App = () => {
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/reviews/form" element={<AddMovieReviewPage />} />
             <Route path="/actors/popular_actors" element={<PopularActorsPage />} />
+            <Route path="/actors/:id" element={<MoviePage />} />
             <Route path="/movies/now_playing" element={<NowPlayingMoviesPage />} />
             <Route path="/movies/popular" element={<PopularMoviesPage />} />
             <Route path="/movies/toprated" element={<TopRatedMoviesPage />} />

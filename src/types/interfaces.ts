@@ -24,6 +24,7 @@ export interface BaseActorProps {
   imdb_id: string;
   popularity: number;
   profile_path?: string;
+  known_for?: string;
 }
 
 export interface BaseMovieListProps {
@@ -45,6 +46,9 @@ export interface MovieDetailsProps extends BaseMovieProps {
         iso_3166_1: string,
         name: string,
     }[];
+}
+
+export interface ActorDetailsProps extends BaseActorProps {
 }
 
 export interface MovieImage {
