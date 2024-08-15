@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
+import ZoomOutMapIcon from "@mui/icons-material/ZoomOutMap";
 import StarRate from "@mui/icons-material/StarRate";
 import Typography from "@mui/material/Typography";
 import { ActorDetailsProps } from "../../types/interfaces";
@@ -41,31 +41,21 @@ const ActorDetails: React.FC<ActorDetailsProps> = (actor) => {
       </Typography>
 
       <Typography variant="h6" component="p">
-        {actor.overview}
+        {actor.biography}
       </Typography>
 
       <Paper component="ul" sx={styles.chipSet}>
-        <li>
-          <Chip label="Genres" sx={styles.chipLabel} color="primary" />
-        </li>
-        {actor.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} />
-          </li>
-        ))}
-      </Paper>
-      <Paper component="ul" sx={styles.chipSet}>
-        <Chip icon={<AccessTimeIcon />} label={`${actor.runtime} min.`} />
+        <Chip icon={<ZoomOutMapIcon />} label={`${actor.place_of_birth}`} />
         <Chip
-          icon={<MonetizationIcon />}
-          label={`${actor.revenue.toLocaleString()}`}
+          icon={<AccessTimeIcon />}
+          label={`${actor.birthday.toLocaleString()}`}
         />
-        <Chip
-          icon={<StarRate />}
-          label={`${actor.vote_average} (${actor.vote_count}`}
-        />
-        <Chip label={`Released: ${actor.release_date}`} />
+        <Chip icon={<StarRate />} label={`${actor.popularity}`} />
       </Paper>
+
+      <Typography variant="h6" component="p">
+        {actor.also_known_as}
+      </Typography>
       <Fab
         color="secondary"
         variant="extended"

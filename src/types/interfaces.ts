@@ -49,11 +49,31 @@ export interface MovieDetailsProps extends BaseMovieProps {
 }
 
 export interface ActorDetailsProps extends BaseActorProps {
+  name: string;
+  biography: string;
+  birthday: string;
+  known_for_department?: string;
+  place_of_birth: string;
+  popularity: number;
+  profile_path?: string;
+  homepage?: string;
+  also_known_as?: string[];
 }
+
 
 export interface MovieImage {
   file_path: string;
   aspect_ratio?: number; //some props are optional...
+  height?: number;
+  iso_639_1?: string;
+  vote_average?: number;
+  vote_count?: number;
+  width?: number;
+}
+
+export interface ActorImage {
+  file_path: string;
+  aspect_ratio?: number; 
   height?: number;
   iso_639_1?: string;
   vote_average?: number;
