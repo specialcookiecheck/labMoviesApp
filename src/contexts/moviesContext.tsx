@@ -46,7 +46,6 @@ const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({
   }, []);
 
   const addReview = (movie: BaseMovieProps, review: Review) => {
-    // NEW
     setMyReviews({ ...myReviews, [movie.id]: review });
   };
 

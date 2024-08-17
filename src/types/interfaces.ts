@@ -25,6 +25,7 @@ export interface BaseActorProps {
   popularity: number;
   profile_path?: string;
   known_for?: string;
+  isMostLoved?: boolean;
 }
 
 export interface BaseMovieListProps {

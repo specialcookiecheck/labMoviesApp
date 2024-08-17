@@ -29,12 +29,13 @@ const SiteHeader: React.FC = () => {
 
   const menuOptions = [
     { label: "Home", path: "/" },
-    { label: "Favorites", path: "/movies/favourites" },
-    { label: "Upcoming", path: "/movies/upcoming" },
-    { label: "Popular Actors", path: "/actors/popular_actors" },
-    { label: "Now Playing", path: "/movies/now_playing" },
+    { label: "Top Rated Movies", path: "/movies/toprated" },
+    { label: "Movies Now Playing", path: "/movies/now_playing" },
+    { label: "Favourite Movies", path: "/movies/favourites" },
+    { label: "Upcoming Movies", path: "/movies/upcoming" },
     { label: "Popular Movies", path: "/movies/popular" },
-    { label: "Top Rated", path: "/movies/toprated" },
+    { label: "Popular Actors", path: "/actors/popular_actors" },
+    { label: "Most Loved Actors", path: "/actors/most_loved" },
   ];
 
   const handleMenuSelect = (pageURL: string) => {
@@ -50,10 +51,10 @@ const SiteHeader: React.FC = () => {
       <AppBar position="fixed" elevation={0} color="primary">
         <Toolbar>
           <Typography variant="h4" sx={styles.title}>
-            TMDB Client
+            TMDBDB
           </Typography>
           <Typography variant="h6" sx={styles.title}>
-            All you ever wanted to know about Movies!
+            All you ever wanted to know about Movies (and more)
           </Typography>
           {isMobile ? (
             <>

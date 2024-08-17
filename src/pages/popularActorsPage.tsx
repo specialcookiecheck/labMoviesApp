@@ -4,7 +4,7 @@ import { getPopularActors } from "../api/tmdb-api";
 import useFiltering from "../hooks/useFiltering";
 // import MovieFilterUI, { titleFilter, genreFilter } from "../components/movieFilterUI";
 import ActorFilterUI, { nameFilter } from "../components/actorFilterUI";
-import { PopularActors } from "../types/interfaces";
+import { BaseActorProps, PopularActors} from "../types/interfaces";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 // import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";

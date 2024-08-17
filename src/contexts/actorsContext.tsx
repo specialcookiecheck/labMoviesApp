@@ -5,7 +5,7 @@ interface ActorsContextInterface {
   mostLovedActors: number[];
   addToMostLovedActors: (actor: BaseActorProps) => void;
   removeFromMostLovedActors: (actor: BaseActorProps) => void;
-  addReview: (actor: BaseActorProps, review: Review) => void; // NEW
+  addReview: (actor: BaseActorProps, review: Review) => void;
 }
 const initialContextState: ActorsContextInterface = {
   mostLovedActors: [],
@@ -26,7 +26,9 @@ const ActorsContextProvider: React.FC<React.PropsWithChildren> = ({
   const [mostLovedActors, setMostLovedActors] = useState<number[]>([]);
 
   const addToMostLovedActors = useCallback((actor: BaseActorProps) => {
+    console.log("adding loved actor");
     setMostLovedActors((prevMostLoved) => {
+      console.log("prevMostLoved:" + prevMostLoved);
       if (!prevMostLoved.includes(actor.id)) {
         return [...prevMostLoved, actor.id];
       }
