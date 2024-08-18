@@ -10,6 +10,8 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
+import MovieTranslations from "../movieTranslations";
+import LanguageIcon from "@mui/icons-material/Language";
 
 const styles = {
   chipSet: {
@@ -25,14 +27,15 @@ const styles = {
     margin: 0.5,
   },
   fab: {
-    position: "fixed",
+    position: "flex",
     top: 50,
     right: 2,
   },
 };
 
 const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
-  const [drawerOpen, setDrawerOpen] = useState(false); // New
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerOpen1, setDrawerOpen1] = useState(false);
 
   return (
     <>
@@ -69,7 +72,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
       <Fab
         color="secondary"
         variant="extended"
-        onClick={() => setDrawerOpen(true)}
+        onClick={() => setDrawerOpen1(true)}
         sx={styles.fab}
       >
         <NavigationIcon />
@@ -77,10 +80,26 @@ const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
       </Fab>
       <Drawer
         anchor="top"
+        open={drawerOpen1}
+        onClose={() => setDrawerOpen1(false)}
+      >
+        <MovieReviews {...movie} />
+      </Drawer>
+      <Fab
+        color="secondary"
+        variant="extended"
+        onClick={() => setDrawerOpen(true)}
+        sx={styles.fab}
+      >
+        <LanguageIcon />
+        Translations
+      </Fab>
+      <Drawer
+        anchor="top"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        <MovieReviews {...movie} />
+        <MovieTranslations {...movie} />
       </Drawer>
     </>
   );
