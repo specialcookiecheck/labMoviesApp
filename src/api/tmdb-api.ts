@@ -121,7 +121,6 @@ export const getUpcomingMovies = () => {
 
 export const getTopRatedMovies = () => {
     return fetch(
-      //"https://api.themoviedb.org/3/movie/upcoming?api_key=" + import.meta.env.VITE_TMDB_KEY + "&language=en-US&page=1"
       "https://api.themoviedb.org/3/movie/top_rated?api_key=" + import.meta.env.VITE_TMDB_KEY
     ).then((response) => {
     if (!response.ok)
@@ -135,7 +134,7 @@ export const getTopRatedMovies = () => {
 
 export const getPopularMovies = () => {
     return fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=" + import.meta.env.VITE_TMDB_KEY
+      "https://api.themoviedb.org/3/movie/popular?api_key=" + import.meta.env.VITE_TMDB_KEY
     ).then((response) => {
     if (!response.ok)
       throw new Error(`Unable to fetch popular movies. Response status: ${response.status}`);
