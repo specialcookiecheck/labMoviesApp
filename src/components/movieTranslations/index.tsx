@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import { getMovieTranslations } from "../../api/tmdb-api";
 //import { excerpt } from "../../util";
 
-import { MovieTranslationsProps, Translation } from "../../types/interfaces";
+import { MovieDetailsProps, Translation } from "../../types/interfaces";
 
 const styles = {
   table: {
@@ -18,11 +18,12 @@ const styles = {
   },
 };
 
-const MovieTransations: React.FC<MovieTranslationsProps> = (movie) => {
+const MovieTransations: React.FC<MovieDetailsProps> = (movie) => {
   const [translations, setTranslations] = useState([]);
 
   useEffect(() => {
     getMovieTranslations(movie.id).then((translations) => {
+        //console.log("translations: " + translations);
       setTranslations(translations);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -33,16 +34,22 @@ const MovieTransations: React.FC<MovieTranslationsProps> = (movie) => {
       <Table sx={styles.table} aria-label="reviews table">
         <TableHead>
           <TableRow>
-            <TableCell>Author</TableCell>
-            <TableCell align="center">Excerpt</TableCell>
-            <TableCell align="right">More</TableCell>
+            <TableCell>Language</TableCell>
+            <TableCell>Translated Title</TableCell>
+            <TableCell align="center">Translated Summary</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {translations.map((t: Translation) => (
-            <TableRow key={t.id}>
+            <TableRow key={t.iso_3166_1}>
               <TableCell component="th" scope="row">
-                {t.translations[1].name}
+                {t.iso_639_1}-{t.name}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {t.data.title}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {t.data.overview}
               </TableCell>
             </TableRow>
           ))}

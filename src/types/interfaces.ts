@@ -152,6 +152,16 @@ export interface Review {
     movieId: number,
   }
 
+  export interface Translation {
+    iso_639_1: string,
+    iso_3166_1: string,
+    name: string,
+    data: {
+      overview: string,
+      title: string,
+    },
+  }
+
 export interface TopRatedMovies {
   page: number;	
   total_pages: number;

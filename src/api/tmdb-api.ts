@@ -89,8 +89,8 @@ export const getMovieTranslations = (id: string | number) => { //movie id can be
   )
     .then((res) => res.json())
     .then((json) => {
-      // console.log(json.results);
-      return json.results;
+      //console.log(json);
+      return json.translations;
     });
 };
 
