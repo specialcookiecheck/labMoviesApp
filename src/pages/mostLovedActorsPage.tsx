@@ -8,7 +8,7 @@ import useFiltering from "../hooks/useFiltering";
 import ActorFilterUI, {
   nameFilter,
 } from "../components/actorFilterUI";
-import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
+import RemoveFromMostLoved from "../components/cardIcons/removeFromMostLoved";
 import WriteReview from "../components/cardIcons/writeReview";
 
 const nameFiltering = {
@@ -62,7 +62,7 @@ const MostLovedActorsPage: React.FC = () => {
         action={(actor) => {
           return (
             <>
-              <RemoveFromFavourites {...actor} />
+              <RemoveFromMostLoved {...actor} />
               <WriteReview {...actor} />
             </>
           );

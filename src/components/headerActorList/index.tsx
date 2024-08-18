@@ -16,11 +16,11 @@ const styles = {
 };
 
 interface HeaderProps {
-  name: string;
+  title: string;
 }
 
 const Header: React.FC<HeaderProps> = (headerProps) => {
-  const title = headerProps.name;
+  const title = headerProps.title;
 
   return (
     <Paper component="div" sx={styles.root}>

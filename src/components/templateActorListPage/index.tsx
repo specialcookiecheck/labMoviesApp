@@ -12,13 +12,13 @@ const styles = {
 
 const ActorListPageTemplate: React.FC<ActorListPageTemplateProps> = ({
   actors,
-  name,
+  title,
   action,
 }) => {
   return (
     <Grid container sx={styles.root}>
       <Grid item xs={12}>
-        <Header name={name} />
+        <Header title={title} />
       </Grid>
       <Grid item container spacing={5}>
         <ActorList action={action} actors={actors}></ActorList>
