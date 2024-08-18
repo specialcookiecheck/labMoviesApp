@@ -29,7 +29,7 @@ This repository contains an implementation of the Movie Fans Web Application usi
 - both "most loved actors" and previously existing "favourites" are sorted automatically sorted alphabetically
 - movie details pages allow you to see translated content in all available languages for each movie
 - translated content is anchored to bottom of page
-- no errors in the app
+- no errors in the code
 
 ### Setup requirements.
 
