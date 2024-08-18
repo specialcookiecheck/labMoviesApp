@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from "react";
-import { BaseActorProps, Review } from "../types/interfaces";
+import { BaseActorProps, ActorReview } from "../types/interfaces";
 
 interface ActorsContextInterface {
   mostLovedActors: number[];
   addToMostLovedActors: (actor: BaseActorProps) => void;
   removeFromMostLovedActors: (actor: BaseActorProps) => void;
-  addReview: (actor: BaseActorProps, review: Review) => void;
+  addReview: (actor: BaseActorProps, review: ActorReview) => void;
 }
 const initialContextState: ActorsContextInterface = {
   mostLovedActors: [],
@@ -22,7 +22,7 @@ export const ActorsContext =
 const ActorsContextProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  const [myReviews, setMyReviews] = useState<Review[]>([]); // NEW
+  const [myReviews, setMyReviews] = useState<ActorReview[]>([]); // NEW
   const [mostLovedActors, setMostLovedActors] = useState<number[]>([]);
 
   const addToMostLovedActors = useCallback((actor: BaseActorProps) => {
@@ -42,7 +42,7 @@ const ActorsContextProvider: React.FC<React.PropsWithChildren> = ({
     );
   }, []);
 
-  const addReview = (actor: BaseActorProps, review: Review) => {
+  const addReview = (actor: BaseActorProps, review: ActorReview) => {
     setMyReviews({ ...myReviews, [actor.id]: review });
   };
 

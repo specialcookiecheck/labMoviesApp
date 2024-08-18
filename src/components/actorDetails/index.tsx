@@ -9,7 +9,7 @@ import { ActorDetailsProps } from "../../types/interfaces";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
-//import ActorReviews from "../actorReviews";
+import ActorCredits from "../actorCredits";
 
 const styles = {
   chipSet: {
@@ -63,6 +63,14 @@ const ActorDetails: React.FC<ActorDetailsProps> = (actor) => {
         sx={styles.fab}
       >
         <NavigationIcon />
+        Credits
+      <Drawer
+        anchor="top"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <ActorCredits {...actor} />
+      </Drawer>
       </Fab>
     </>
   );

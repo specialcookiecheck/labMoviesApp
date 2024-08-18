@@ -1,4 +1,4 @@
-import React, { MouseEvent, useContext } from "react";
+import React, { /*MouseEvent,*/ useContext } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,7 +7,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocalMoviesOutlinedIcon from "@mui/icons-material/LocalMoviesOutlined";
+//import LocalMoviesOutlinedIcon from "@mui/icons-material/LocalMoviesOutlined";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import img from "../../images/film-poster-placeholder.png";
@@ -30,7 +30,7 @@ interface ActorCardProps {
 }
 
 const ActorCard: React.FC<ActorCardProps> = ({ actor, action }) => {
-  const { mostLovedActors, addToMostLovedActors } = useContext(ActorsContext); 
+  const { mostLovedActors, /*addToMostLovedActors*/ } = useContext(ActorsContext); 
 
   const isMostLoved = mostLovedActors.find((id) => id === actor.id)
     ? true

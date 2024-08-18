@@ -9,7 +9,7 @@ import ActorFilterUI, {
   nameFilter,
 } from "../components/actorFilterUI";
 import RemoveFromMostLoved from "../components/cardIcons/removeFromMostLoved";
-import WriteReview from "../components/cardIcons/writeReview";
+import WriteActorReview from "../components/cardIcons/writeActorReview";
 
 const nameFiltering = {
   name: "name",
@@ -63,7 +63,7 @@ const MostLovedActorsPage: React.FC = () => {
           return (
             <>
               <RemoveFromMostLoved {...actor} />
-              <WriteReview {...actor} />
+              <WriteActorReview {...actor} />
             </>
           );
         }}

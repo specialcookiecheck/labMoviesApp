@@ -10,7 +10,7 @@ import MovieFilterUI, {
   genreFilter,
 } from "../components/movieFilterUI";
 import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
-import WriteReview from "../components/cardIcons/writeReview";
+import WriteReview from "../components/cardIcons/writeMovieReview";
 
 const titleFiltering = {
   name: "title",

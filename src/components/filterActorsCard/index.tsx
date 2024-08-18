@@ -4,13 +4,13 @@ import { SelectChangeEvent } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
+//import InputLabel from "@mui/material/InputLabel";
+//import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import SortIcon from "@mui/icons-material/Sort";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+//import SortIcon from "@mui/icons-material/Sort";
+//import FormControl from "@mui/material/FormControl";
+//import Select from "@mui/material/Select";
 import { getGenres } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../spinner";
@@ -37,7 +37,7 @@ const FilterActorsCard: React.FC<FilterActorsCardProps> = ({
   nameFilter,
   onUserInput,
 }) => {
-  const { data, error, isLoading, isError } = useQuery<BaseActorProps, Error>(
+  const { /*data,*/ error, isLoading, isError } = useQuery<BaseActorProps, Error>(
     "genres",
     getGenres
   );

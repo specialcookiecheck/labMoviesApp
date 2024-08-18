@@ -61,6 +61,9 @@ export interface ActorDetailsProps extends BaseActorProps {
   also_known_as?: string[];
 }
 
+export interface ActorCreditsProps extends BaseActorProps {
+}
+
 
 export interface MovieImage {
   file_path: string;
@@ -87,7 +90,7 @@ export interface MoviePageProps {
   images: MovieImage[];
 }
 
-export type FilterOption = "title" | "genre";
+export type FilterOption = "title" | "genre" | "name";
 
 export interface MovieListPageTemplateProps extends BaseMovieListProps {
   title: string;
@@ -101,6 +104,21 @@ export interface Review{
     id: string;
     content: string
     author: string
+}
+
+export interface ActorReview{
+    rating: number;
+    actorId: number;
+    id: string;
+    content: string
+    author: string
+}
+
+export interface Credit{
+    id: string;
+    overview: string;
+    character: string;
+    title: string;
 }
 
 export interface GenreData {

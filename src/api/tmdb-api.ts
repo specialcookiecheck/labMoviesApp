@@ -83,6 +83,18 @@ export const getMovieReviews = (id: string | number) => { //movie id can be stri
     });
 };
 
+export const getActorCredits = (id: string | number) => { 
+  return fetch(
+    `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      //console.log(json)
+      //console.log(json.cast)
+      return json.cast;
+    });
+};
+
 export const getUpcomingMovies = () => {
     return fetch(
       "https://api.themoviedb.org/3/movie/upcoming?api_key=" + import.meta.env.VITE_TMDB_KEY + "&language=en-US&page=1"
