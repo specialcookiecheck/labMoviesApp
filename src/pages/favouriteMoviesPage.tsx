@@ -47,7 +47,9 @@ const FavouriteMoviesPage: React.FC = () => {
     return <Spinner />;
   }
 
-  const allFavourites = favouriteMovieQueries.map((q) => q.data);
+  const allFavourites = favouriteMovieQueries
+    .map((q) => q.data)
+    .sort((a, b) => a.title.localeCompare(b.title));
   const displayedMovies = allFavourites ? filterFunction(allFavourites) : [];
 
   const changeFilterValues = (type: string, value: string) => {

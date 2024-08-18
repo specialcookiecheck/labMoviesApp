@@ -41,7 +41,9 @@ const MostLovedActorsPage: React.FC = () => {
     return <Spinner />;
   }
 
-  const allMostLovedActors = mostLovedActorQueries.map((q) => q.data);
+  const allMostLovedActors = mostLovedActorQueries
+    .map((q) => q.data)
+    .sort((a, b) => a.name.localeCompare(b.name));
   const displayedActors =
     allMostLovedActors ? filterFunction(allMostLovedActors): [];
 
