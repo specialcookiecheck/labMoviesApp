@@ -42,14 +42,14 @@ const ReviewForm: React.FC<BaseActorProps> = (actor) => {
 
   const handleSnackClose = () => {
     setOpen(false);
-    navigate("/actors/favourites");
+    navigate("/actors/most_loved");
   };
 
   const onSubmit: SubmitHandler<ActorReview> = (review) => {
     review.actorId = actor.id;
     review.rating = rating;
     context.addReview(actor, review);
-    setOpen(true); // NEW
+    setOpen(true);
     // console.log(review);
   };
 
