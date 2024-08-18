@@ -95,7 +95,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
         Translations
       </Fab>
       <Drawer
-        anchor="top"
+        anchor="bottom"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
