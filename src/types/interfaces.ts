@@ -164,6 +164,13 @@ export interface PopularMovies {
   results: BaseMovieProps[];
 }
 
+export interface NowPlayingMovies {
+  page: number;	
+  total_pages: number;
+  total_results: number;
+  results: BaseMovieProps[];
+}
+
 export interface PopularActors {
   page: number;	
   total_pages: number;

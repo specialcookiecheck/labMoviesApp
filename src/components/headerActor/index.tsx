@@ -33,7 +33,7 @@ const ActorHeader: React.FC<ActorDetailsProps> = (actor) => {
       </IconButton>
 
       {favourites.some(
-        (favourite) => favourite.id != undefined && favourite.id === actor.id
+        (favourite: { id: number | undefined; }) => favourite.id != undefined && favourite.id === actor.id
       ) ? (
         <Avatar sx={styles.avatar}>
           <FavoriteIcon />

@@ -40,7 +40,7 @@ const MovieHeader: React.FC<MovieDetailsProps> = (movie) => {
       </IconButton>
       
       {
-        favourites.some((favourite) => favourite.id != undefined && favourite.id === movie.id) ? (
+        favourites.some((favourite: { id: number | undefined; }) => favourite.id != undefined && favourite.id === movie.id) ? (
           <Avatar sx={styles.avatar}>
             <FavoriteIcon />
           </Avatar>
