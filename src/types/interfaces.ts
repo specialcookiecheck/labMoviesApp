@@ -94,7 +94,7 @@ export interface MovieListPageTemplateProps extends BaseMovieListProps {
 }
 
 export interface ActorListPageTemplateProps extends BaseActorListProps {
-  name: string;
+  title: string;
 }
 
 export interface Review{

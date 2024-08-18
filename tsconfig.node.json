@@ -6,9 +6,5 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts"],
-  "compileroptions": {
-    "composite": true,
-    "types": ["vite/client"]
-  }
+  "include": ["vite.config.ts"]
 }
